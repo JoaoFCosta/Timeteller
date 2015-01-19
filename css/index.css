@@ -1,0 +1,28 @@
+/* Styles */
+body {
+  background-color: #16304b;
+}
+
+#time, #header, #footer-text {
+	color: #fff;
+  font-family: 'MontSerrat', sans-serif;
+}
+
+#time {
+  line-height: 600px;
+  font-size: 10em;
+}
+
+#header:hover {
+	cursor: hand;
+}
+
+#creator-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+#creator-link:hover {
+  color: black;
+  text-decoration: underline;
+}
