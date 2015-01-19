@@ -1,27 +1,31 @@
 var bgcolors = ['#16304B', '#FFC23C', '#F05E35', '#2A9E79', '#FFFFFF'];
 var tmcolors = ['#FFC23C', '#2A9E79', '#FFFFFF', '#16304B', '#F05E35'];
+
+// Get current date and time
+var now = new Date();
+var msleft = ( 59 - now.getSeconds() + 1 ) * 1000;
 var hours, minutes, rand;
 
 function setTime () {
+  // Get current date and time
+  now = new Date();
 
-  var oldm = minutes;
-  var now = new Date();
+  // Calculat miliseconds left
+  msleft = ( 59 - now.getSeconds() + 1 ) * 1000;
+
   // Get hours
   hours = now.getHours();
   hours = hours < 10 ? ('0' + hours) : hours;
-  // Get minures
+
+  // Get minutes
   minutes = now.getMinutes();
   minutes = minutes < 10 ? ('0' + minutes) : minutes;
 
-
-  // Update time and colors
-  if ( oldm != minutes )
-  {
-    document.getElementById('time').innerHTML = hours + ':' + minutes;
-    setColors();
-  }
+  // Update time
+  document.getElementById('time').innerHTML = hours + ':' + minutes;
 }
 
+// Change colors
 function setColors () {
   var oldr = rand;
   do { rand = Math.floor( Math.random() * 5 ) } while ( rand == oldr );
@@ -37,4 +41,5 @@ function setColors () {
 
 window.setInterval( function() {
   setTime();
-}, 10000 );
+  setColors();
+}, msleft );
